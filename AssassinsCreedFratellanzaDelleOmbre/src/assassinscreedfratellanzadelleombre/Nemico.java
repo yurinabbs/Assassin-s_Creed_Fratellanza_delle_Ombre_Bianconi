@@ -9,5 +9,7 @@ package assassinscreedfratellanzadelleombre;
  * @author bianconi.yurinabil
  */
 public class Nemico {
-    
+    private String nome;
+    private int vita;
+    private int attacco;
 }

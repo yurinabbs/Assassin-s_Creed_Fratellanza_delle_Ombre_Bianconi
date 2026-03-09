@@ -17,6 +17,7 @@ public class SceltaIniziale extends javax.swing.JFrame {
      */
     public SceltaIniziale() {
         initComponents();
+
     }
 
     /**
@@ -64,7 +65,7 @@ public class SceltaIniziale extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new SceltaIniziale().setVisible(true));
     }
