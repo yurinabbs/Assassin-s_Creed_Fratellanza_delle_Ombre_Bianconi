@@ -12,4 +12,8 @@ public class Nemico {
     private String nome;
     private int vita;
     private int attacco;
+    
+    public void subisciDanno(){
+        
+    }
 }
