@@ -9,6 +9,5 @@ package assassinscreedfratellanzadelleombre;
  * @author bianconi.yurinabil
  */
 public class GameManager {
-    private Personaggio giocatore;
-    private Nemico nemico;
+    
 }

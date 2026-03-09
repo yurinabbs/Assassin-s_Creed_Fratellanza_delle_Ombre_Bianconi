@@ -9,12 +9,5 @@ package assassinscreedfratellanzadelleombre;
  * @author bianconi.yurinabil
  */
 public class Personaggio {
-    private String nome;
-    private int vita;
-    private int attacco;
-    private int furtivita;
-    private int cureDisponibili;
-    private int energiaRichiesta;
-    private int livello;
-    private int esperienza;
+    
 }
