@@ -20,23 +20,46 @@ public class Personaggio {
     private int livello;
     private int esperienza;
 
-    public Personaggio(String nome, int vita, int attacco, int furtivita, int energia, int livello, int esperienza) {
+    public Personaggio(String nome, int vita, int attacco, int furtivita, int energia, int livello) {
         this.nome = nome;
         this.vita = vita;
         this.attacco = attacco;
         this.furtivita = furtivita;
-        this.energia = 0;
-        this.cureDisponibili = cureDisponibili;
         this.dannoSpeciale = dannoSpeciale;
-        this.energiaRichiesta = 2;
+        this.energiaRichiesta = energiaRichiesta;
+        this.energia = 0;
+        this.cureDisponibili = 2;
         this.livello = 1;
         this.esperienza = 0;
     }
     
-    public int usaSpeciale (int furtivita, int energia, int energiaRichiesta){
+    public boolean usaSpeciale (Nemico n){
         if (energia > energiaRichiesta) {
             energia = energia - energiaRichiesta;
-            
+            n.subisciDanno(dannoSpeciale);
+            return true;
         }
+        return false;
+    }
+
+    public void subisciDanno(int danno) {
+        vita = vita - danno;
+        
+        if (vita < 0){
+            vita = 0;
+        }
+    }
+    
+    public boolean curati() {
+        
+        if(cureDisponibili > 0){
+            cureDisponibili--;
+            vita = vita + 25;
+            if (vita > 100){
+                vita = 100;
+            }
+            return true;
+        }
+        return false;
     }
 }

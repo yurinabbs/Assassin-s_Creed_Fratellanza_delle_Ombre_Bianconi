@@ -13,7 +13,22 @@ public class Nemico {
     private int vita;
     private int attacco;
     
-    public void subisciDanno(){
+
+    public Nemico(String nome, int vita, int attacco) {
+        this.nome = nome;
+        this.vita = vita;
+        this.attacco = attacco;
+    }
+    
+    public void attacca(Personaggio p){
+        p.subisciDanno(attacco);
+    }
+    
+    public void subisciDanno(int danno){
+        vita = vita - danno;
         
+        if (vita < 0){
+            vita = 0;
+        }
     }
 }
