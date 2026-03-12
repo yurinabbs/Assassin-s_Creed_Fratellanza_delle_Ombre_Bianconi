@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package assassinscreedfratellanzadelleombre;
+import java.util.Random;
 
 /**
  *
@@ -50,6 +51,20 @@ public class GameManager {
     
     public void generaNemico(){
         
+        Random rand = new Random();
+        int tipo = rand.nextInt(3);
+        
+        if(tipo == 0){
+            nemico = new Nemico("Spia Occulta",70,10);
+        }
+        
+        if(tipo == 1){
+            nemico = new Nemico("Guerriero Occulto",100,15);
+        }
+        
+        if(tipo == 2){
+            nemico = new Nemico ("Assassino Occulto",90,18);
+        }
     }
     
     public void attaccoGiocatore() {
@@ -58,6 +73,27 @@ public class GameManager {
         
         if(nemico.getVita() > 0) {
             nemico.attacca(giocatore);
+        }
+    }
+    
+    public void generaDrop(){
+        
+        Random rand = new Random();
+        int drop = rand.nextInt(3);
+        
+        if(drop == 0){
+            giocatore.aggiungiCura();
+            System.out.println("Hai trovato una cura!");
+        }
+        
+        if(drop == 1){
+            giocatore.aumentaAttacco(5);
+            System.out.println("Hai trovato un upgrade per la tua lama!");
+        }
+        
+        if(drop == 2){
+            giocatore.aumentaEnergia(10);
+            System.out.println("Hai trovato del cibo e hai recuperato energia!");
         }
     }
 }

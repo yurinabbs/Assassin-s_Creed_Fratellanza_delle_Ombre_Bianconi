@@ -20,7 +20,7 @@ public class Personaggio {
     private int livello;
     private int esperienza;
 
-    public Personaggio(String nome, int vita, int attacco, int furtivita, int energia, int livello) {
+    public Personaggio(String nome, int vita, int attacco, int furtivita, int energia, int livello, int dannoSpeciale, int energiaRichiesta) {
         this.nome = nome;
         this.vita = vita;
         this.attacco = attacco;
@@ -62,4 +62,21 @@ public class Personaggio {
         }
         return false;
     }
+    
+    public void attacca(Nemico n){
+        n.subisciDanno(attacco);
+    }
+    
+    public void recuperaVita(){
+        cureDisponibili++;
+    }
+    
+    public void aumentaEnergia(int aumento){
+        energia = energia + aumento;
+    }
+    
+    public void aumentaAttacco(int aumento){
+        attacco = attacco + aumento;
+    }
+
 }

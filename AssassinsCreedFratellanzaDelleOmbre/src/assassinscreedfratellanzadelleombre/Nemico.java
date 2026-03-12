@@ -31,4 +31,9 @@ public class Nemico {
             vita = 0;
         }
     }
+
+    public int getVita() {
+        return vita;
+    }
+
 }
