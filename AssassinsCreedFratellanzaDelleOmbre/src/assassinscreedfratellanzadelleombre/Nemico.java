@@ -36,4 +36,12 @@ public class Nemico {
         return vita;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public int getAttacco() {
+        return attacco;
+    }
+
 }

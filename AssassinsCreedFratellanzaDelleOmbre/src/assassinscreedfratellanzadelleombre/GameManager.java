@@ -74,6 +74,9 @@ public class GameManager {
         if(nemico.getVita() > 0) {
             nemico.attacca(giocatore);
         }
+        
+        generaDrop();
+        generaNemico();
     }
     
     public void generaDrop(){
@@ -82,7 +85,7 @@ public class GameManager {
         int drop = rand.nextInt(3);
         
         if(drop == 0){
-            giocatore.aggiungiCura();
+            giocatore.aggiungiVita();
             System.out.println("Hai trovato una cura!");
         }
         
@@ -96,4 +99,13 @@ public class GameManager {
             System.out.println("Hai trovato del cibo e hai recuperato energia!");
         }
     }
+
+    public Personaggio getGiocatore() {
+        return giocatore;
+    }
+
+    public Nemico getNemico() {
+        return nemico;
+    }
+    
 }

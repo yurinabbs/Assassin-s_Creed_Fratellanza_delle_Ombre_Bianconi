@@ -34,7 +34,7 @@ public class Personaggio {
     }
     
     public boolean usaSpeciale (Nemico n){
-        if (energia > energiaRichiesta) {
+        if (energia >= energiaRichiesta) {
             energia = energia - energiaRichiesta;
             n.subisciDanno(dannoSpeciale);
             return true;
@@ -65,9 +65,10 @@ public class Personaggio {
     
     public void attacca(Nemico n){
         n.subisciDanno(attacco);
+        energia = energia + 10;
     }
     
-    public void recuperaVita(){
+    public void aggiungiVita(){
         cureDisponibili++;
     }
     
@@ -77,6 +78,46 @@ public class Personaggio {
     
     public void aumentaAttacco(int aumento){
         attacco = attacco + aumento;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getVita() {
+        return vita;
+    }
+
+    public int getAttacco() {
+        return attacco;
+    }
+
+    public int getFurtivita() {
+        return furtivita;
+    }
+
+    public int getEnergia() {
+        return energia;
+    }
+
+    public int getCureDisponibili() {
+        return cureDisponibili;
+    }
+
+    public int getDannoSpeciale() {
+        return dannoSpeciale;
+    }
+
+    public int getEnergiaRichiesta() {
+        return energiaRichiesta;
+    }
+
+    public int getLivello() {
+        return livello;
+    }
+
+    public int getEsperienza() {
+        return esperienza;
     }
 
 }
