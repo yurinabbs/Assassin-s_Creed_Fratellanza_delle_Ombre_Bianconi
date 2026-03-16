@@ -97,6 +97,10 @@ public class GameManager {
     
     public void generaNemico(){
         
+        if (numeroNemiciSconfitti >= 10){
+            nemico = new Nemico("L'Intendente",250,35);
+        }
+        
         Random ran = new Random();
         int tipo = ran.nextInt(3);
         
