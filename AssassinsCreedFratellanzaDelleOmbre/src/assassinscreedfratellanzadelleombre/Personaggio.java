@@ -20,7 +20,7 @@ public class Personaggio {
     private int livello;
     private int esperienza;
 
-    public Personaggio(String nome, int vita, int attacco, int furtivita, int energia, int livello, int dannoSpeciale, int energiaRichiesta) {
+    public Personaggio(String nome, int vita, int attacco, int furtivita, int dannoSpeciale, int energiaRichiesta) {
         this.nome = nome;
         this.vita = vita;
         this.attacco = attacco;
@@ -61,6 +61,22 @@ public class Personaggio {
             return true;
         }
         return false;
+    }
+    
+    public void guadagnaEsperienza(int xp){
+        esperienza = esperienza + xp;
+        
+        if(esperienza >= livello * 100){
+            saliDiLivello();
+        }
+    }
+    
+    public void saliDiLivello(){
+        livello++;
+        
+        vita = vita + 20;
+        attacco = attacco + 10;
+        //POP Up sei ora di livello --!!!
     }
     
     public void attacca(Nemico n){

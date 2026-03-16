@@ -12,6 +12,7 @@ import java.util.Random;
 public class GameManager {
     private Personaggio giocatore;
     private Nemico nemico;
+    private int numeroNemiciSconfitti = 0;
     
     public void selezionaPersonaggio(String scelta){
         if(scelta.equals("EZIO")){
@@ -48,35 +49,21 @@ public class GameManager {
             );
         }
     }
-    
-    public void generaNemico(){
-        
-        Random rand = new Random();
-        int tipo = rand.nextInt(3);
-        
-        if(tipo == 0){
-            nemico = new Nemico("Spia Occulta",70,10);
-        }
-        
-        if(tipo == 1){
-            nemico = new Nemico("Guerriero Occulto",100,15);
-        }
-        
-        if(tipo == 2){
-            nemico = new Nemico ("Assassino Occulto",90,18);
-        }
-    }
+
     
     public void attaccoGiocatore() {
-        
-        giocatore.attacca(nemico);
         
         if(nemico.getVita() > 0) {
             nemico.attacca(giocatore);
         }
         
-        generaDrop();
-        generaNemico();
+        else{
+            giocatore.attacca(nemico);
+            numeroNemiciSconfitti++;
+            generaDrop();
+            generaNemico();
+            giocatore.guadagnaEsperienza(50);
+        }
     }
     
     public void generaDrop(){
@@ -106,6 +93,27 @@ public class GameManager {
 
     public Nemico getNemico() {
         return nemico;
+    }
+    
+    public void generaNemico(){
+        
+        Random ran = new Random();
+        int tipo = ran.nextInt(3);
+        
+        int vitaBase = 70 + (numeroNemiciSconfitti * 10);
+        int forzaBase = 10 + (numeroNemiciSconfitti * 2);
+        
+        if(tipo == 0){
+            nemico = new Nemico("Spia Occulta",vitaBase,forzaBase);
+        }
+        
+        if(tipo == 1){
+            nemico = new Nemico("Guerriero Occulto",vitaBase + 10 ,forzaBase + 3);
+        }
+        
+        if(tipo == 2){
+            nemico = new Nemico ("Assassino Occulto",vitaBase + 20,forzaBase + 5);
+        }
     }
     
 }
