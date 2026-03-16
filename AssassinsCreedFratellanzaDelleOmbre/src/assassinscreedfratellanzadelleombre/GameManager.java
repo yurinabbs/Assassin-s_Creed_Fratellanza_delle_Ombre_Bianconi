@@ -13,6 +13,7 @@ public class GameManager {
     private Personaggio giocatore;
     private Nemico nemico;
     private int numeroNemiciSconfitti = 0;
+    boolean partitaFinita = false;
     
     public void selezionaPersonaggio(String scelta){
         if(scelta.equals("EZIO")){
@@ -99,11 +100,13 @@ public class GameManager {
         
         if (numeroNemiciSconfitti >= 10){
             nemico = new Nemico("L'Intendente",250,35);
-        }
+        }    
         
+        if (nemico.getVita() < 0 && nemico.getNome().equals("L'Intendente")){
+            partitaFinita = true;
+        }
         Random ran = new Random();
         int tipo = ran.nextInt(3);
-        
         int vitaBase = 70 + (numeroNemiciSconfitti * 10);
         int forzaBase = 10 + (numeroNemiciSconfitti * 2);
         
