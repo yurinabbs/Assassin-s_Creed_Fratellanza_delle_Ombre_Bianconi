@@ -96,6 +96,18 @@ public class GameManager {
         return nemico;
     }
     
+    public void usaAbilita(){
+        // instanceof serve per controllare se l'oggetto è di quella classe
+        if(giocatore instanceof Ezio){
+            ((Ezio)giocatore).attaccoFurtivo(nemico); 
+        }
+        if(giocatore instanceof Shay){
+            ((Shay)giocatore).colpoBrutale(nemico);
+        }
+        if(giocatore instanceof Kassandra){
+            ((Kassandra)giocatore).rigenerazione(nemico);
+        }
+    }
     public void generaNemico(){
         
         if (numeroNemiciSconfitti >= 10){

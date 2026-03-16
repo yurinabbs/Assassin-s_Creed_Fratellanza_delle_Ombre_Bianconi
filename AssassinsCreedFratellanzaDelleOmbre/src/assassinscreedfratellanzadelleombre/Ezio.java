@@ -14,6 +14,11 @@ public class Ezio extends Personaggio{
         super("KASSANDRA",100,20,50,40,30);
     }
     
-    
+    public void attaccoFurtivo(Nemico n){
+        
+        int danno  = getAttacco() * 2;
+        n.subisciDanno(danno);
+        //EZIO CHE COLPISCE DA UN CESPUGLIO CON LA LAMA
+    }
     
 }

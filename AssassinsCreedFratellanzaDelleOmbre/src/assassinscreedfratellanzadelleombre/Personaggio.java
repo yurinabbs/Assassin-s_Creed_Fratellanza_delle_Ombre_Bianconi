@@ -84,6 +84,10 @@ public class Personaggio {
         energia = energia + 10;
     }
     
+    public boolean isMorto(){
+        return vita <= 0;
+    }
+    
     public void aggiungiVita(){
         cureDisponibili++;
     }

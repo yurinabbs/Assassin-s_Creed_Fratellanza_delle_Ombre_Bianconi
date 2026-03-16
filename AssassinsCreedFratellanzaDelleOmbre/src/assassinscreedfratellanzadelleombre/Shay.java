@@ -13,4 +13,11 @@ public class Shay extends Personaggio{
     public Shay(){
         super("KASSANDRA",120,22,25,50,35);
     }
+    
+    public void colpoBrutale(Nemico n){
+        
+        int danno  = getAttacco() + 30;
+        n.subisciDanno(danno);
+        //SHAY HA UN PROIETTILE SPECIALE CHE PERFORA IL NEMICO
+    }
 }

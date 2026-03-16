@@ -14,4 +14,10 @@ public class Kassandra extends Personaggio{
     public Kassandra(){
         super("KASSANDRA",110,22,35,45,30);
     }
+    
+    public void rigenerazione(Nemico n){
+        
+        subisciDanno(-20);
+        //KASSANDRA CHE SI CURA MANGIANDO QUALCOSA
+    }
 }
