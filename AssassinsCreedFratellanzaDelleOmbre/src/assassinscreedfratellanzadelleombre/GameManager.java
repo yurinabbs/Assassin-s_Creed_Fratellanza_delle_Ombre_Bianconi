@@ -18,53 +18,32 @@ public class GameManager {
     public void selezionaPersonaggio(String scelta){
         if(scelta.equals("EZIO")){
         
-            giocatore = new Personaggio(
-            "EZIO",
-            100,
-            20,
-            50,
-            40,
-            30
-            );
+            giocatore = new Ezio();
         }
         
         if(scelta.equals("SHAY")){
-            giocatore = new Personaggio(
-            "SHAY",
-            120,
-            25,
-            25,
-            50,
-            35
-            );
+            
+            giocatore = new Shay();
         }
         
         if(scelta.equals("KASSANDRA")){
-            giocatore = new Personaggio(
-            "KASSANDRA",
-            110,
-            22,
-            35,
-            45,
-            30
-            );
+            
+            giocatore = new Kassandra();
         }
     }
 
     
     public void attaccoGiocatore() {
         
-        if(nemico.getVita() > 0) {
-            nemico.attacca(giocatore);
-        }
-        
-        else{
+        giocatore.attacca(nemico);
+        if(nemico.isMorto()) {
             giocatore.attacca(nemico);
             numeroNemiciSconfitti++;
             generaDrop();
             generaNemico();
             giocatore.guadagnaEsperienza(50);
         }
+        nemico.attacca(giocatore);
     }
     
     public void generaDrop(){
@@ -109,18 +88,17 @@ public class GameManager {
         }
     }
     public void generaNemico(){
-        
-        if (numeroNemiciSconfitti >= 10){
-            nemico = new Nemico("L'Intendente",250,35);
-        }    
-        
-        if (nemico.getVita() < 0 && nemico.getNome().equals("L'Intendente")){
-            partitaFinita = true;
-        }
         Random ran = new Random();
         int tipo = ran.nextInt(3);
         int vitaBase = 70 + (numeroNemiciSconfitti * 10);
         int forzaBase = 10 + (numeroNemiciSconfitti * 2);
+        
+        if (numeroNemiciSconfitti >= 10){
+            nemico = new Nemico("L'Intendente",250,35);
+            return;
+        }    
+        
+
         
         if(tipo == 0){
             nemico = new Nemico("Spia Occulta",vitaBase,forzaBase);
@@ -132,6 +110,10 @@ public class GameManager {
         
         if(tipo == 2){
             nemico = new Nemico ("Assassino Occulto",vitaBase + 20,forzaBase + 5);
+        }
+        
+        if (nemico.isMorto() && nemico.getNome().equals("L'Intendente")){
+            partitaFinita = true;
         }
     }
     

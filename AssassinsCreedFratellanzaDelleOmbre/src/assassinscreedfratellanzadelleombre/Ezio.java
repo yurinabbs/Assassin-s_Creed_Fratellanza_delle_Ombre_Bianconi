@@ -11,7 +11,7 @@ package assassinscreedfratellanzadelleombre;
 public class Ezio extends Personaggio{
     
     public Ezio(){
-        super("KASSANDRA",100,20,50,40,30);
+        super("EZIO",100,20,50,40,30);
     }
     
     public void attaccoFurtivo(Nemico n){
@@ -20,5 +20,4 @@ public class Ezio extends Personaggio{
         n.subisciDanno(danno);
         //EZIO CHE COLPISCE DA UN CESPUGLIO CON LA LAMA
     }
-    
 }

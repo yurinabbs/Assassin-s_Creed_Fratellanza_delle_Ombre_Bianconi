@@ -11,7 +11,7 @@ package assassinscreedfratellanzadelleombre;
 public class Shay extends Personaggio{
     
     public Shay(){
-        super("KASSANDRA",120,22,25,50,35);
+        super("SHAY",120,22,25,50,35);
     }
     
     public void colpoBrutale(Nemico n){

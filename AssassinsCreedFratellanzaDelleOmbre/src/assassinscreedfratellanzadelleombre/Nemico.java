@@ -31,6 +31,13 @@ public class Nemico {
             vita = 0;
         }
     }
+    
+    public boolean isMorto(){
+        if (vita > 0 ){
+            return false;
+        }
+        return true;
+    }
 
     public int getVita() {
         return vita;
