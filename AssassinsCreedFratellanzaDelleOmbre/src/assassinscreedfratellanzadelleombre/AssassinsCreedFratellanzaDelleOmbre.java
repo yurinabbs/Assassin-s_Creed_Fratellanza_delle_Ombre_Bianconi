@@ -14,6 +14,8 @@ public class AssassinsCreedFratellanzaDelleOmbre {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        SchermataInizioGioco s1 = new SchermataInizioGioco();
+        s1.setVisible(true);
         
     }
     

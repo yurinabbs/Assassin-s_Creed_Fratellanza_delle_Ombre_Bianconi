@@ -15,6 +15,9 @@ public class SchermataInizioGioco extends javax.swing.JPanel {
      */
     public SchermataInizioGioco() {
         initComponents();
+        
+        labelSfondoSchermataIniziale.getResource("/AssassinCreedFratellanzaDelleOmbre/immagini");
+        
     }
 
     /**
@@ -29,7 +32,7 @@ public class SchermataInizioGioco extends javax.swing.JPanel {
         bottoneLeggiStoria = new javax.swing.JButton();
         bottoneIniziaGioco1 = new javax.swing.JButton();
         bottoneContinuaGioco1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        labelSfondoSchermataIniziale = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -54,9 +57,9 @@ public class SchermataInizioGioco extends javax.swing.JPanel {
         add(bottoneContinuaGioco1);
         bottoneContinuaGioco1.setBounds(330, 380, 170, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sfondoInizioGioco.png"))); // NOI18N
-        add(jLabel2);
-        jLabel2.setBounds(0, 0, 820, 510);
+        labelSfondoSchermataIniziale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/sfondoInizioGioco.png"))); // NOI18N
+        add(labelSfondoSchermataIniziale);
+        labelSfondoSchermataIniziale.setBounds(0, -10, 820, 520);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -64,6 +67,6 @@ public class SchermataInizioGioco extends javax.swing.JPanel {
     private javax.swing.JButton bottoneContinuaGioco1;
     private javax.swing.JButton bottoneIniziaGioco1;
     private javax.swing.JButton bottoneLeggiStoria;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel labelSfondoSchermataIniziale;
     // End of variables declaration//GEN-END:variables
 }
