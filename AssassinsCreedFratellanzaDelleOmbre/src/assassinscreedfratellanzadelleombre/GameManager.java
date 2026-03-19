@@ -87,6 +87,7 @@ public class GameManager {
             ((Kassandra)giocatore).rigenerazione(nemico);
         }
     }
+    
     public void generaNemico(){
         Random ran = new Random();
         int tipo = ran.nextInt(3);
@@ -98,7 +99,6 @@ public class GameManager {
             return;
         }    
         
-
         
         if(tipo == 0){
             nemico = new Nemico("Spia Occulta",vitaBase,forzaBase);
