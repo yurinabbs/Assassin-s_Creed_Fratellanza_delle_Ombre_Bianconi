@@ -8,16 +8,15 @@ package assassinscreedfratellanzadelleombre;
  *
  * @author bianconi.yurinabil
  */
-public class SceltaIniziale extends javax.swing.JFrame {
+public class SchermataStoria extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SceltaIniziale.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SchermataStoria.class.getName());
 
     /**
-     * Creates new form SceltaIniziale
+     * Creates new form SchermataStoria
      */
-    public SceltaIniziale() {
+    public SchermataStoria() {
         initComponents();
-
     }
 
     /**
@@ -29,17 +28,21 @@ public class SceltaIniziale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/schermataStoriaFoto.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -65,11 +68,12 @@ public class SceltaIniziale extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new SceltaIniziale().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new SchermataStoria().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

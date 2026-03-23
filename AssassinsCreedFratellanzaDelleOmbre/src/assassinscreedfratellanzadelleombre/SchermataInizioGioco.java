@@ -16,7 +16,6 @@ public class SchermataInizioGioco extends javax.swing.JPanel {
     public SchermataInizioGioco() {
         initComponents();
         
-        labelSfondoSchermataIniziale.getResource("/AssassinCreedFratellanzaDelleOmbre/immagini");
         
     }
 
@@ -30,8 +29,8 @@ public class SchermataInizioGioco extends javax.swing.JPanel {
     private void initComponents() {
 
         bottoneLeggiStoria = new javax.swing.JButton();
-        bottoneIniziaGioco1 = new javax.swing.JButton();
-        bottoneContinuaGioco1 = new javax.swing.JButton();
+        bottoneIniziaGioco = new javax.swing.JButton();
+        bottoneContinuaGioco = new javax.swing.JButton();
         labelSfondoSchermataIniziale = new javax.swing.JLabel();
 
         setLayout(null);
@@ -40,32 +39,52 @@ public class SchermataInizioGioco extends javax.swing.JPanel {
         bottoneLeggiStoria.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
         bottoneLeggiStoria.setForeground(new java.awt.Color(242, 242, 242));
         bottoneLeggiStoria.setText("LEGGI STORIA");
+        bottoneLeggiStoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneLeggiStoriaActionPerformed(evt);
+            }
+        });
         add(bottoneLeggiStoria);
         bottoneLeggiStoria.setBounds(330, 430, 170, 40);
 
-        bottoneIniziaGioco1.setBackground(new java.awt.Color(102, 0, 0));
-        bottoneIniziaGioco1.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
-        bottoneIniziaGioco1.setForeground(new java.awt.Color(242, 242, 242));
-        bottoneIniziaGioco1.setText("INIZIA GIOCO");
-        add(bottoneIniziaGioco1);
-        bottoneIniziaGioco1.setBounds(330, 330, 170, 40);
+        bottoneIniziaGioco.setBackground(new java.awt.Color(102, 0, 0));
+        bottoneIniziaGioco.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
+        bottoneIniziaGioco.setForeground(new java.awt.Color(242, 242, 242));
+        bottoneIniziaGioco.setText("INIZIA GIOCO");
+        bottoneIniziaGioco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneIniziaGiocoActionPerformed(evt);
+            }
+        });
+        add(bottoneIniziaGioco);
+        bottoneIniziaGioco.setBounds(330, 330, 170, 40);
 
-        bottoneContinuaGioco1.setBackground(new java.awt.Color(102, 0, 0));
-        bottoneContinuaGioco1.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
-        bottoneContinuaGioco1.setForeground(new java.awt.Color(242, 242, 242));
-        bottoneContinuaGioco1.setText("CONTINUA ");
-        add(bottoneContinuaGioco1);
-        bottoneContinuaGioco1.setBounds(330, 380, 170, 40);
+        bottoneContinuaGioco.setBackground(new java.awt.Color(102, 0, 0));
+        bottoneContinuaGioco.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
+        bottoneContinuaGioco.setForeground(new java.awt.Color(242, 242, 242));
+        bottoneContinuaGioco.setText("CONTINUA ");
+        add(bottoneContinuaGioco);
+        bottoneContinuaGioco.setBounds(330, 380, 170, 40);
 
         labelSfondoSchermataIniziale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/sfondoInizioGioco.png"))); // NOI18N
         add(labelSfondoSchermataIniziale);
         labelSfondoSchermataIniziale.setBounds(0, -10, 820, 520);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bottoneIniziaGiocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneIniziaGiocoActionPerformed
+        SchermataSceltaPersonaggi sceltaP1 = new SchermataSceltaPersonaggi();
+        sceltaP1.setVisible(true);
+    }//GEN-LAST:event_bottoneIniziaGiocoActionPerformed
+
+    private void bottoneLeggiStoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneLeggiStoriaActionPerformed
+        SchermataStoria storia1 = new SchermataStoria();
+        storia1.setVisible(true);
+    }//GEN-LAST:event_bottoneLeggiStoriaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bottoneContinuaGioco1;
-    private javax.swing.JButton bottoneIniziaGioco1;
+    private javax.swing.JButton bottoneContinuaGioco;
+    private javax.swing.JButton bottoneIniziaGioco;
     private javax.swing.JButton bottoneLeggiStoria;
     private javax.swing.JLabel labelSfondoSchermataIniziale;
     // End of variables declaration//GEN-END:variables
