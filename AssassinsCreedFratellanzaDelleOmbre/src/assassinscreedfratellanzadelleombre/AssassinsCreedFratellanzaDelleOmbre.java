@@ -15,8 +15,9 @@ public class AssassinsCreedFratellanzaDelleOmbre {
      */
     public static void main(String[] args) {
         SchermataInizioGioco s1 = new SchermataInizioGioco();
+        s1.setSize(837,540);
         s1.setVisible(true);
-        
+        System.out.println("ciao");
     }
     
 }

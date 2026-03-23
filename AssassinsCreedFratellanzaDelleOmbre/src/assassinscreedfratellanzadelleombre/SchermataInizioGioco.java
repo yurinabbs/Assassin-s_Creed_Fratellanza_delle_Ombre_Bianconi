@@ -8,13 +8,15 @@ package assassinscreedfratellanzadelleombre;
  *
  * @author bianconi.yurinabil
  */
-public class SchermataInizioGioco extends javax.swing.JPanel {
+public class SchermataInizioGioco extends javax.swing.JFrame {
 
     /**
      * Creates new form SchermataInizioGioco
      */
+    private SchermataStoria sc1;
     public SchermataInizioGioco() {
         initComponents();
+        sc1 = new SchermataStoria();
         
         
     }
@@ -77,8 +79,11 @@ public class SchermataInizioGioco extends javax.swing.JPanel {
     }//GEN-LAST:event_bottoneIniziaGiocoActionPerformed
 
     private void bottoneLeggiStoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneLeggiStoriaActionPerformed
-        SchermataStoria storia1 = new SchermataStoria();
-        storia1.setVisible(true);
+
+        sc1.setVisible(true);
+        sc1.setSize(837,540);
+        this.dispose();
+        
     }//GEN-LAST:event_bottoneLeggiStoriaActionPerformed
 
 
