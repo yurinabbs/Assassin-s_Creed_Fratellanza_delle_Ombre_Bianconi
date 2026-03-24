@@ -15,9 +15,12 @@ public class SchermataStoria extends javax.swing.JFrame {
     /**
      * Creates new form SchermataStoria
      */
+    private SchermataInizioGioco sig1;
     public SchermataStoria() {
         initComponents();
+       // sig1 = new SchermataInizioGioco();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,6 +58,8 @@ public class SchermataStoria extends javax.swing.JFrame {
     private void bottoneIndietroStoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneIndietroStoriaActionPerformed
         SchermataInizioGioco s1 = new SchermataInizioGioco();
         s1.setVisible(true);
+        s1.setSize(837,540);
+        this.dispose();
     }//GEN-LAST:event_bottoneIndietroStoriaActionPerformed
 
     /**
