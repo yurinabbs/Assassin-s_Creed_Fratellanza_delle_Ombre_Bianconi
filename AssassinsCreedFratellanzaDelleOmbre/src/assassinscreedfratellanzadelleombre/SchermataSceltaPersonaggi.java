@@ -15,8 +15,10 @@ public class SchermataSceltaPersonaggi extends javax.swing.JFrame {
     /**
      * Creates new form SchermataSceltaPersonaggi
      */
+    private GameManager gameManager;
     public SchermataSceltaPersonaggi() {
         initComponents();
+        
     }
 
     /**
@@ -28,32 +30,62 @@ public class SchermataSceltaPersonaggi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        bottoneSelezionaKassandra = new javax.swing.JButton();
+        bottoneSelezionaShay = new javax.swing.JButton();
+        bottoneSelezionaEzio = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(80, 410, 190, 40);
+        bottoneSelezionaKassandra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/seleziona_bottone.png"))); // NOI18N
+        bottoneSelezionaKassandra.setText("jButton1");
+        bottoneSelezionaKassandra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneSelezionaKassandraActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bottoneSelezionaKassandra);
+        bottoneSelezionaKassandra.setBounds(530, 410, 180, 40);
+
+        bottoneSelezionaShay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/seleziona_bottone.png"))); // NOI18N
+        bottoneSelezionaShay.setText("jButton1");
+        bottoneSelezionaShay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneSelezionaShayActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bottoneSelezionaShay);
+        bottoneSelezionaShay.setBounds(80, 410, 180, 40);
+
+        bottoneSelezionaEzio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/seleziona_bottone.png"))); // NOI18N
+        bottoneSelezionaEzio.setText("jButton1");
+        bottoneSelezionaEzio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneSelezionaEzioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bottoneSelezionaEzio);
+        bottoneSelezionaEzio.setBounds(310, 410, 180, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/sfondoSceltaPersonaggio.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 800, 500);
 
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(310, 410, 180, 40);
-
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(530, 410, 190, 40);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bottoneSelezionaKassandraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSelezionaKassandraActionPerformed
+        gameManager.selezionaPersonaggio("KASSANDRA");
+    }//GEN-LAST:event_bottoneSelezionaKassandraActionPerformed
+
+    private void bottoneSelezionaShayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSelezionaShayActionPerformed
+        gameManager.selezionaPersonaggio("SHAY");
+    }//GEN-LAST:event_bottoneSelezionaShayActionPerformed
+
+    private void bottoneSelezionaEzioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSelezionaEzioActionPerformed
+        gameManager.selezionaPersonaggio("EZIO");
+    }//GEN-LAST:event_bottoneSelezionaEzioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -61,9 +93,9 @@ public class SchermataSceltaPersonaggi extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton bottoneSelezionaEzio;
+    private javax.swing.JButton bottoneSelezionaKassandra;
+    private javax.swing.JButton bottoneSelezionaShay;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
