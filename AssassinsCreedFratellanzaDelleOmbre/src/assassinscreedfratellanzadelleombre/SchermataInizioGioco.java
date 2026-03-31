@@ -36,7 +36,7 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
         bottoneContinuaGioco = new javax.swing.JButton();
         labelSfondoSchermataIniziale = new javax.swing.JLabel();
 
-        setLayout(null);
+        getContentPane().setLayout(null);
 
         bottoneLeggiStoria.setBackground(new java.awt.Color(102, 0, 0));
         bottoneLeggiStoria.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
@@ -47,7 +47,7 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
                 bottoneLeggiStoriaActionPerformed(evt);
             }
         });
-        add(bottoneLeggiStoria);
+        getContentPane().add(bottoneLeggiStoria);
         bottoneLeggiStoria.setBounds(330, 430, 170, 40);
 
         bottoneIniziaGioco.setBackground(new java.awt.Color(102, 0, 0));
@@ -59,18 +59,18 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
                 bottoneIniziaGiocoActionPerformed(evt);
             }
         });
-        add(bottoneIniziaGioco);
+        getContentPane().add(bottoneIniziaGioco);
         bottoneIniziaGioco.setBounds(330, 330, 170, 40);
 
         bottoneContinuaGioco.setBackground(new java.awt.Color(102, 0, 0));
         bottoneContinuaGioco.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
         bottoneContinuaGioco.setForeground(new java.awt.Color(242, 242, 242));
         bottoneContinuaGioco.setText("CONTINUA ");
-        add(bottoneContinuaGioco);
+        getContentPane().add(bottoneContinuaGioco);
         bottoneContinuaGioco.setBounds(330, 380, 170, 40);
 
         labelSfondoSchermataIniziale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/sfondoInizioGioco.png"))); // NOI18N
-        add(labelSfondoSchermataIniziale);
+        getContentPane().add(labelSfondoSchermataIniziale);
         labelSfondoSchermataIniziale.setBounds(0, -10, 820, 520);
     }// </editor-fold>//GEN-END:initComponents
 
