@@ -4,6 +4,8 @@
  */
 package assassinscreedfratellanzadelleombre;
 
+import static java.awt.GridBagConstraints.BOTH;
+
 /**
  *
  * @author bianconi.yurinabil
@@ -17,8 +19,8 @@ public class SchermataSceltaPersonaggi extends javax.swing.JFrame {
      */
     private GameManager gameManager;
 
-    public SchermataSceltaPersonaggi(GameManager gm) {
-        this.gameManager = gm;
+    public SchermataSceltaPersonaggi(GameManager gm1) {
+        this.gameManager = gm1;
         initComponents();
         
     }
@@ -83,19 +85,28 @@ public class SchermataSceltaPersonaggi extends javax.swing.JFrame {
     private void bottoneSelezionaKassandraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSelezionaKassandraActionPerformed
         gameManager.selezionaPersonaggio("KASSANDRA");
         gameManager.generaNemico();
-        new SchermataCombattimentoGioco(gameManager).setVisible(true);
+        SchermataCombattimentoGioco schermata = new SchermataCombattimentoGioco (gameManager);
+        schermata.setVisible(true);
+        schermata.setSize(818,540);
+//        setExtendedState(javax.swing.JFrame.MAXIMIZED BOTH);
         this.dispose();
     }//GEN-LAST:event_bottoneSelezionaKassandraActionPerformed
 
     private void bottoneSelezionaShayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSelezionaShayActionPerformed
         gameManager.selezionaPersonaggio("SHAY");
-        scg1.setVisible(true);
+        gameManager.generaNemico();
+        SchermataCombattimentoGioco schermata = new SchermataCombattimentoGioco (gameManager);
+        schermata.setVisible(true);
+        schermata.setSize(818,540);
         this.dispose();
     }//GEN-LAST:event_bottoneSelezionaShayActionPerformed
 
     private void bottoneSelezionaEzioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSelezionaEzioActionPerformed
         gameManager.selezionaPersonaggio("EZIO");
-        scg1.setVisible(true);
+        gameManager.generaNemico();
+        SchermataCombattimentoGioco schermata = new SchermataCombattimentoGioco (gameManager);
+        schermata.setVisible(true);
+        schermata.setSize(818,540);
         this.dispose();
     }//GEN-LAST:event_bottoneSelezionaEzioActionPerformed
 

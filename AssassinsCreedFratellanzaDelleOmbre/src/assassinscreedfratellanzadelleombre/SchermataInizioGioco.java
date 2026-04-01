@@ -14,11 +14,9 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
      * Creates new form SchermataInizioGioco
      */
     private SchermataStoria sc1;
-    private SchermataSceltaPersonaggi sceltaP1;
     public SchermataInizioGioco() {
         initComponents();
         sc1 = new SchermataStoria();
-        sceltaP1 = new SchermataSceltaPersonaggi();
         
     }
 
@@ -75,8 +73,11 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bottoneIniziaGiocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneIniziaGiocoActionPerformed
+        GameManager gm = new GameManager();
+        
+        SchermataSceltaPersonaggi sceltaP1 = new SchermataSceltaPersonaggi(gm);
         sceltaP1.setVisible(true);
-        sceltaP1.setSize(837,540);
+        sceltaP1.setSize(818,540);
         this.dispose();
     }//GEN-LAST:event_bottoneIniziaGiocoActionPerformed
 
