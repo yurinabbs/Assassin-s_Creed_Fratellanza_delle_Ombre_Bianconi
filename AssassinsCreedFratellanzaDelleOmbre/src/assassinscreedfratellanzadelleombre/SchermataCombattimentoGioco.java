@@ -31,7 +31,14 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jLabel1 = new javax.swing.JLabel();
+        bottoneCurati = new javax.swing.JButton();
+        bottoneAttacca = new javax.swing.JButton();
+        bottoneSpeciale = new javax.swing.JButton();
+        bottoneNasconditi = new javax.swing.JButton();
+        labelNomePlayer = new javax.swing.JLabel();
+        labelVitaPlayer = new javax.swing.JLabel();
+        labelEnergia = new javax.swing.JLabel();
+        SfondoCombattimento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -40,9 +47,37 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(250, 370, 300, 110);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/SfondoCombattimento.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 500);
+        bottoneCurati.setText("CURATI");
+        getContentPane().add(bottoneCurati);
+        bottoneCurati.setBounds(400, 200, 160, 40);
+
+        bottoneAttacca.setText("ATTACCA");
+        getContentPane().add(bottoneAttacca);
+        bottoneAttacca.setBounds(230, 130, 160, 40);
+
+        bottoneSpeciale.setText("MOSSA SPECIALE");
+        getContentPane().add(bottoneSpeciale);
+        bottoneSpeciale.setBounds(230, 200, 160, 40);
+
+        bottoneNasconditi.setText("NASCONDITI");
+        getContentPane().add(bottoneNasconditi);
+        bottoneNasconditi.setBounds(400, 130, 160, 40);
+
+        labelNomePlayer.setText("jLabel2");
+        getContentPane().add(labelNomePlayer);
+        labelNomePlayer.setBounds(30, 40, 180, 40);
+
+        labelVitaPlayer.setText("jLabel2");
+        getContentPane().add(labelVitaPlayer);
+        labelVitaPlayer.setBounds(30, 410, 180, 30);
+
+        labelEnergia.setText("jLabel1");
+        getContentPane().add(labelEnergia);
+        labelEnergia.setBounds(30, 450, 180, 30);
+
+        SfondoCombattimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/SfondoCombattimento.png"))); // NOI18N
+        getContentPane().add(SfondoCombattimento);
+        SfondoCombattimento.setBounds(0, 0, 800, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -72,7 +107,14 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel SfondoCombattimento;
+    private javax.swing.JButton bottoneAttacca;
+    private javax.swing.JButton bottoneCurati;
+    private javax.swing.JButton bottoneNasconditi;
+    private javax.swing.JButton bottoneSpeciale;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelEnergia;
+    private javax.swing.JLabel labelNomePlayer;
+    private javax.swing.JLabel labelVitaPlayer;
     // End of variables declaration//GEN-END:variables
 }
