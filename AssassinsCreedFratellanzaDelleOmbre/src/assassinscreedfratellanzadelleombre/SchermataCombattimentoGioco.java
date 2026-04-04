@@ -19,6 +19,20 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     public SchermataCombattimentoGioco(GameManager gm1) {
         this.gameManager = gm1;
         initComponents();
+        
+        aggiornaSchermata();
+    }
+    
+    private void aggiornaSchermata() {
+        
+        Personaggio p = gameManager.getGiocatore();
+        Nemico n = gameManager.getNemico();
+        
+        labelNomePlayer.setText(p.getNome());
+        labelVitaPlayer.setText("VITA: " + p.getVita());
+        labelEnergia.setText("ENERGIA: " + p.getEnergia());
+        labelNomeNemico.setText(n.getNome());
+        labelVitaNemico.setText("VITA: " + n.getVita());
     }
 
     /**
@@ -30,50 +44,91 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
         bottoneCurati = new javax.swing.JButton();
         bottoneAttacca = new javax.swing.JButton();
         bottoneSpeciale = new javax.swing.JButton();
         bottoneNasconditi = new javax.swing.JButton();
-        labelNomePlayer = new javax.swing.JLabel();
+        labelVitaNemico = new javax.swing.JLabel();
         labelVitaPlayer = new javax.swing.JLabel();
         labelEnergia = new javax.swing.JLabel();
+        labelNomePlayer = new javax.swing.JLabel();
+        labelNomeNemico = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        areaTestoCombattimento = new javax.swing.JTextArea();
         SfondoCombattimento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jScrollPane1.setBorder(new javax.swing.border.MatteBorder(null));
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(250, 370, 300, 110);
-
         bottoneCurati.setText("CURATI");
+        bottoneCurati.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneCuratiActionPerformed(evt);
+            }
+        });
         getContentPane().add(bottoneCurati);
         bottoneCurati.setBounds(400, 200, 160, 40);
 
         bottoneAttacca.setText("ATTACCA");
+        bottoneAttacca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneAttaccaActionPerformed(evt);
+            }
+        });
         getContentPane().add(bottoneAttacca);
         bottoneAttacca.setBounds(230, 130, 160, 40);
 
         bottoneSpeciale.setText("MOSSA SPECIALE");
+        bottoneSpeciale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneSpecialeActionPerformed(evt);
+            }
+        });
         getContentPane().add(bottoneSpeciale);
         bottoneSpeciale.setBounds(230, 200, 160, 40);
 
         bottoneNasconditi.setText("NASCONDITI");
+        bottoneNasconditi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneNasconditiActionPerformed(evt);
+            }
+        });
         getContentPane().add(bottoneNasconditi);
         bottoneNasconditi.setBounds(400, 130, 160, 40);
 
-        labelNomePlayer.setText("jLabel2");
-        getContentPane().add(labelNomePlayer);
-        labelNomePlayer.setBounds(30, 40, 180, 40);
+        labelVitaNemico.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelVitaNemico.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(labelVitaNemico);
+        labelVitaNemico.setBounds(590, 410, 180, 40);
 
-        labelVitaPlayer.setText("jLabel2");
+        labelVitaPlayer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelVitaPlayer.setForeground(new java.awt.Color(255, 255, 255));
+        labelVitaPlayer.setText("VITA");
         getContentPane().add(labelVitaPlayer);
         labelVitaPlayer.setBounds(30, 410, 180, 30);
 
-        labelEnergia.setText("jLabel1");
+        labelEnergia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelEnergia.setForeground(new java.awt.Color(255, 255, 255));
+        labelEnergia.setText("ENERGIA");
         getContentPane().add(labelEnergia);
         labelEnergia.setBounds(30, 450, 180, 30);
+
+        labelNomePlayer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelNomePlayer.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(labelNomePlayer);
+        labelNomePlayer.setBounds(30, 40, 180, 40);
+
+        labelNomeNemico.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelNomeNemico.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(labelNomeNemico);
+        labelNomeNemico.setBounds(590, 40, 180, 40);
+
+        areaTestoCombattimento.setColumns(20);
+        areaTestoCombattimento.setRows(5);
+        jScrollPane2.setViewportView(areaTestoCombattimento);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(280, 380, 234, 86);
 
         SfondoCombattimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/SfondoCombattimento.png"))); // NOI18N
         getContentPane().add(SfondoCombattimento);
@@ -81,6 +136,32 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bottoneAttaccaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneAttaccaActionPerformed
+        gameManager.attaccoGiocatore();
+        areaTestoCombattimento.setText("Hai attaccato il nemico!");
+        aggiornaSchermata();
+    }//GEN-LAST:event_bottoneAttaccaActionPerformed
+
+    private void bottoneSpecialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSpecialeActionPerformed
+        gameManager.usaAbilita();
+        areaTestoCombattimento.setText("Hai usato la tua abilita speciale!");
+        aggiornaSchermata();
+    }//GEN-LAST:event_bottoneSpecialeActionPerformed
+
+    private void bottoneCuratiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneCuratiActionPerformed
+        if (gameManager.getGiocatore().curati()){
+            areaTestoCombattimento.setText("Ti sei curato!");
+        }
+        else {
+            areaTestoCombattimento.setText("Nessuna cura disponibile!");
+        }
+        aggiornaSchermata();
+    }//GEN-LAST:event_bottoneCuratiActionPerformed
+
+    private void bottoneNasconditiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneNasconditiActionPerformed
+        areaTestoCombattimento.setText("Ti sei nascosto!");
+    }//GEN-LAST:event_bottoneNasconditiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,13 +189,16 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SfondoCombattimento;
+    private javax.swing.JTextArea areaTestoCombattimento;
     private javax.swing.JButton bottoneAttacca;
     private javax.swing.JButton bottoneCurati;
     private javax.swing.JButton bottoneNasconditi;
     private javax.swing.JButton bottoneSpeciale;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelEnergia;
+    private javax.swing.JLabel labelNomeNemico;
     private javax.swing.JLabel labelNomePlayer;
+    private javax.swing.JLabel labelVitaNemico;
     private javax.swing.JLabel labelVitaPlayer;
     // End of variables declaration//GEN-END:variables
 }
