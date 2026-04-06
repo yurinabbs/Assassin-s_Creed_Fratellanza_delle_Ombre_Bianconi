@@ -4,6 +4,10 @@
  */
 package assassinscreedfratellanzadelleombre;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author bianconi.yurinabil
@@ -19,8 +23,8 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     public SchermataCombattimentoGioco(GameManager gm1) {
         this.gameManager = gm1;
         initComponents();
-        
         aggiornaSchermata();
+        aggiornaImmagini();        
     }
     
     private void aggiornaSchermata() {
@@ -33,7 +37,54 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         labelEnergia.setText("ENERGIA: " + p.getEnergia());
         labelNomeNemico.setText(n.getNome());
         labelVitaNemico.setText("VITA: " + n.getVita());
+        barraVitaPlayer.setValue(p.getVita());
+        barraVitaNemico.setValue(n.getVita());
     }
+    
+    private void aggiornaImmagini() {
+        
+        String nomePlayer = gameManager.getGiocatore().getNome();
+        
+        if (nomePlayer.equals("EZIO")){
+            setImmagine(immaginePlayer, "/AssassinsCreedFratellanzaDelleOmbre/immagini/ezio.png");
+        }
+        
+        if (nomePlayer.equals("SHAY")){
+            setImmagine(immaginePlayer, "/immagini/shay.png");
+        }
+        
+        if (nomePlayer.equals("KASSANDRA")){
+            setImmagine(immaginePlayer, "/immagini/kassandra.png");
+        }
+        
+        String nomeNemico = gameManager.getNemico().getNome();
+        
+        if (nomeNemico.equals("Spia")){
+            setImmagine(immaginePlayer, "/immagini/spia.png");
+        }
+        
+        if (nomeNemico.equals("Guerriero")){
+            setImmagine(immaginePlayer, "/immagini/guerriero.png");
+        }
+        
+        if (nomeNemico.equals("Assassino")){
+            setImmagine(immaginePlayer, "/immagini/assassino.png");
+        }
+    }
+    
+    private void setImmagine(JLabel label, String path){
+
+    ImageIcon icon = new ImageIcon(getClass().getResource(path));
+    Image img = icon.getImage();
+
+    Image imgScaled = img.getScaledInstance(
+        label.getWidth(), 
+        label.getHeight(), 
+        Image.SCALE_SMOOTH
+    );
+
+    label.setIcon(new ImageIcon(imgScaled));
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,6 +106,10 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         labelNomeNemico = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         areaTestoCombattimento = new javax.swing.JTextArea();
+        barraVitaNemico = new javax.swing.JProgressBar();
+        barraVitaPlayer = new javax.swing.JProgressBar();
+        immagineNemico = new javax.swing.JLabel();
+        immaginePlayer = new javax.swing.JLabel();
         SfondoCombattimento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,7 +183,15 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         jScrollPane2.setViewportView(areaTestoCombattimento);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(280, 380, 234, 86);
+        jScrollPane2.setBounds(270, 380, 234, 86);
+        getContentPane().add(barraVitaNemico);
+        barraVitaNemico.setBounds(590, 10, 180, 20);
+        getContentPane().add(barraVitaPlayer);
+        barraVitaPlayer.setBounds(30, 10, 180, 20);
+        getContentPane().add(immagineNemico);
+        immagineNemico.setBounds(600, 110, 160, 270);
+        getContentPane().add(immaginePlayer);
+        immaginePlayer.setBounds(40, 110, 160, 270);
 
         SfondoCombattimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/SfondoCombattimento.png"))); // NOI18N
         getContentPane().add(SfondoCombattimento);
@@ -190,10 +253,14 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SfondoCombattimento;
     private javax.swing.JTextArea areaTestoCombattimento;
+    private javax.swing.JProgressBar barraVitaNemico;
+    private javax.swing.JProgressBar barraVitaPlayer;
     private javax.swing.JButton bottoneAttacca;
     private javax.swing.JButton bottoneCurati;
     private javax.swing.JButton bottoneNasconditi;
     private javax.swing.JButton bottoneSpeciale;
+    private javax.swing.JLabel immagineNemico;
+    private javax.swing.JLabel immaginePlayer;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelEnergia;
     private javax.swing.JLabel labelNomeNemico;
