@@ -24,7 +24,11 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         this.gameManager = gm1;
         initComponents();
         aggiornaSchermata();
-        aggiornaImmagini();        
+        aggiornaImmagini();   
+        java.net.URL test = getClass().getResource("/assassinscreedfratellanzadelleombre/immagini/ezio.png");
+
+System.out.println(test);
+
     }
     
     private void aggiornaSchermata() {
@@ -42,49 +46,58 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     }
     
     private void aggiornaImmagini() {
-        
-        String nomePlayer = gameManager.getGiocatore().getNome();
-        
-        if (nomePlayer.equals("EZIO")){
-            setImmagine(immaginePlayer, "/AssassinsCreedFratellanzaDelleOmbre/immagini/ezio.png");
-        }
-        
-        if (nomePlayer.equals("SHAY")){
-            setImmagine(immaginePlayer, "/immagini/shay.png");
-        }
-        
-        if (nomePlayer.equals("KASSANDRA")){
-            setImmagine(immaginePlayer, "/immagini/kassandra.png");
-        }
-        
-        String nomeNemico = gameManager.getNemico().getNome();
-        
-        if (nomeNemico.equals("Spia")){
-            setImmagine(immaginePlayer, "/immagini/spia.png");
-        }
-        
-        if (nomeNemico.equals("Guerriero")){
-            setImmagine(immaginePlayer, "/immagini/guerriero.png");
-        }
-        
-        if (nomeNemico.equals("Assassino")){
-            setImmagine(immaginePlayer, "/immagini/assassino.png");
-        }
-    }
-    
-    private void setImmagine(JLabel label, String path){
 
-    ImageIcon icon = new ImageIcon(getClass().getResource(path));
+    String nomePlayer = gameManager.getGiocatore().getNome();
+
+    if (nomePlayer.contains("EZIO")){
+        setImmagine(immaginePlayer, "/assassinscreedfratellanzadelleombre/immagini/ezio.png");
+    }
+
+    if (nomePlayer.contains("SHAY")){
+        setImmagine(immaginePlayer, "/assassinscreedfratellanzadelleombre/immagini/shay.png");
+    }
+
+    if (nomePlayer.contains("KASSANDRA")){
+        setImmagine(immaginePlayer, "/assassinscreedfratellanzadelleombre/immagini/kassandra.png");
+    }
+
+    String nomeNemico = gameManager.getNemico().getNome();
+
+    if (nomeNemico.contains("Spia")){
+        setImmagine(immagineNemico, "/assassinscreedfratellanzadelleombre/immagini/spia.png");
+    }
+
+    if (nomeNemico.contains("Guerriero")){
+        setImmagine(immagineNemico, "/assassinscreedfratellanzadelleombre/immagini/guerriero.png");
+    }
+
+    if (nomeNemico.contains("Assassino")){
+        setImmagine(immagineNemico, "/assassinscreedfratellanzadelleombre/immagini/assassino.png");
+    }
+}
+
+    
+private void setImmagine(JLabel label, String path){
+
+    java.net.URL url = getClass().getResource(path);
+
+    if(url == null){
+        System.out.println("ERRORE: immagine non trovata -> " + path);
+        return;
+    }
+
+    ImageIcon icon = new ImageIcon(url);
     Image img = icon.getImage();
 
     Image imgScaled = img.getScaledInstance(
-        label.getWidth(), 
-        label.getHeight(), 
+        label.getWidth(),
+        label.getHeight(),
         Image.SCALE_SMOOTH
     );
 
     label.setIcon(new ImageIcon(imgScaled));
 }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -153,8 +166,9 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
 
         labelVitaNemico.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelVitaNemico.setForeground(new java.awt.Color(255, 255, 255));
+        labelVitaNemico.setText("VITA:");
         getContentPane().add(labelVitaNemico);
-        labelVitaNemico.setBounds(590, 410, 180, 40);
+        labelVitaNemico.setBounds(590, 410, 180, 30);
 
         labelVitaPlayer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelVitaPlayer.setForeground(new java.awt.Color(255, 255, 255));
@@ -183,7 +197,7 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         jScrollPane2.setViewportView(areaTestoCombattimento);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(270, 380, 234, 86);
+        jScrollPane2.setBounds(280, 380, 234, 86);
         getContentPane().add(barraVitaNemico);
         barraVitaNemico.setBounds(590, 10, 180, 20);
         getContentPane().add(barraVitaPlayer);

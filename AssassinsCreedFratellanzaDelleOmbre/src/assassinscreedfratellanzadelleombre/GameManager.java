@@ -34,17 +34,26 @@ public class GameManager {
 
     
     public void attaccoGiocatore() {
-        
+
+        if (giocatore.isMorto()) return;
+
         giocatore.attacca(nemico);
+
         if(nemico.isMorto()) {
-            giocatore.attacca(nemico);
             numeroNemiciSconfitti++;
             generaDrop();
             generaNemico();
             giocatore.guadagnaEsperienza(50);
+            return;
         }
+
         nemico.attacca(giocatore);
+
+        if (giocatore.isMorto()) {
+            partitaFinita = true;
+        }
     }
+
     
     public void generaDrop(){
         
@@ -101,15 +110,15 @@ public class GameManager {
         
         
         if(tipo == 0){
-            nemico = new Nemico("Spia Occulta",vitaBase,forzaBase);
+            nemico = new Nemico("Spia",vitaBase,forzaBase);
         }
         
         if(tipo == 1){
-            nemico = new Nemico("Guerriero Occulto",vitaBase + 10 ,forzaBase + 3);
+            nemico = new Nemico("Guerriero",vitaBase + 10 ,forzaBase + 3);
         }
         
         if(tipo == 2){
-            nemico = new Nemico ("Assassino Occulto",vitaBase + 20,forzaBase + 5);
+            nemico = new Nemico ("Assassino",vitaBase + 20,forzaBase + 5);
         }
         
         if (nemico.isMorto() && nemico.getNome().equals("L'Intendente")){
@@ -117,4 +126,7 @@ public class GameManager {
         }
     }
     
+    public boolean isPartitaFinita() {
+        return partitaFinita || giocatore.isMorto();
+    }
 }
