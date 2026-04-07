@@ -14,6 +14,7 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
      * Creates new form SchermataInizioGioco
      */
     private SchermataStoria sc1;
+    
     public SchermataInizioGioco() {
         initComponents();
         sc1 = new SchermataStoria();
@@ -64,6 +65,11 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
         bottoneContinuaGioco.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
         bottoneContinuaGioco.setForeground(new java.awt.Color(242, 242, 242));
         bottoneContinuaGioco.setText("CONTINUA ");
+        bottoneContinuaGioco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneContinuaGiocoActionPerformed(evt);
+            }
+        });
         getContentPane().add(bottoneContinuaGioco);
         bottoneContinuaGioco.setBounds(330, 380, 170, 40);
 
@@ -88,6 +94,23 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_bottoneLeggiStoriaActionPerformed
+
+    private void bottoneContinuaGiocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneContinuaGiocoActionPerformed
+        Object[] dati = FileManager.caricaGioco();
+        
+        if (dati != null) {
+            GameManager gm = new GameManager();
+            gm.caricaPartita(dati);
+            SchermataCombattimentoGioco scm1 = new SchermataCombattimentoGioco(gm);
+            scm1.setVisible(true);
+            scm1.setSize(837,540);
+            this.dispose();
+            
+        }
+        else {
+            javax.swing.JOptionPane.showMessageDialog(null, "nessun salvataggio trovato"); //idea presa da game over e vittoria
+        }
+    }//GEN-LAST:event_bottoneContinuaGiocoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

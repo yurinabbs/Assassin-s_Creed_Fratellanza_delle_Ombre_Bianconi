@@ -90,17 +90,8 @@ public class GameManager {
         return nemico;
     }
     
-    public void usaAbilita(){
-        // instanceof serve per controllare se l'oggetto è di quella classe
-        if(giocatore instanceof Ezio){
-            ((Ezio)giocatore).attaccoFurtivo(nemico); 
-        }
-        if(giocatore instanceof Shay){
-            ((Shay)giocatore).colpoBrutale(nemico);
-        }
-        if(giocatore instanceof Kassandra){
-            ((Kassandra)giocatore).rigenerazione(nemico);
-        }
+    public boolean usaAbilita(){
+        return giocatore.usaSpeciale(nemico);
     }
     
     public void generaNemico(){
@@ -134,6 +125,29 @@ public class GameManager {
     }
     
     public boolean isVittoria() {
-       return partitaFinita || giocatore.isMorto();
+       return partitaFinita && !giocatore.isMorto();
+    }
+    
+    public int getNumeroNemiciSconfitti() {
+        return numeroNemiciSconfitti;
+    }
+    
+        public void caricaPartita(Object[] dati) {
+        
+        String nome = (String) dati[0];
+        int vita = (int) dati[1];
+        int energia = (int) dati[2];
+        int punteggio = (int) dati[3];
+        int nemici = (int) dati[4];
+        
+        selezionaPersonaggio(nome);
+        
+        giocatore.setVita(vita);
+        giocatore.setEnergia(energia);
+        giocatore.setPunteggio(punteggio);
+        
+        this.numeroNemiciSconfitti = nemici;
+        
+        generaNemico();
     }
 }

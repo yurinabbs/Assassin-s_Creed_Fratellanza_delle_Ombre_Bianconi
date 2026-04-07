@@ -139,4 +139,12 @@ public class Personaggio {
         return livello;
     }
 
+    public void setVita(int vita) {
+        this.vita = vita;
+    }
+
+    public void setEnergia(int energia) {
+        this.energia = energia;
+    }
+
 }

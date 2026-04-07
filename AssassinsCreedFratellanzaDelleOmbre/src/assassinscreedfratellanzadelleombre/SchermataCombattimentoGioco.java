@@ -44,34 +44,35 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     
     private void aggiornaImmagini() {
 
-    String nomePlayer = gameManager.getGiocatore().getNome();
+        String nomePlayer = gameManager.getGiocatore().getNome();
 
-    if (nomePlayer.contains("EZIO")){
-        setImmagine(immaginePlayer, "/assassinscreedfratellanzadelleombre/immagini/ezio.png");
+        if (nomePlayer.equals("EZIO")){
+            setImmagine(immaginePlayer, "/assassinscreedfratellanzadelleombre/immagini/ezio.png");
+        }
+
+        if (nomePlayer.equals("SHAY")){
+            setImmagine(immaginePlayer, "/assassinscreedfratellanzadelleombre/immagini/shay.png");
+        }
+
+        if (nomePlayer.equals("KASSANDRA")){
+            setImmagine(immaginePlayer, "/assassinscreedfratellanzadelleombre/immagini/kassandra.png");
+        }
+
+        String nomeNemico = gameManager.getNemico().getNome();
+
+        if (nomeNemico.contains("Spia")){
+            setImmagine(immagineNemico, "/assassinscreedfratellanzadelleombre/immagini/spia.png");
+        }
+
+        if (nomeNemico.contains("Guerriero")){
+            setImmagine(immagineNemico, "/assassinscreedfratellanzadelleombre/immagini/guerriero.png");
+        }
+
+        if (nomeNemico.contains("Assassino")){
+            setImmagine(immagineNemico, "/assassinscreedfratellanzadelleombre/immagini/assassino.png");
+        }
     }
-
-    if (nomePlayer.contains("SHAY")){
-        setImmagine(immaginePlayer, "/assassinscreedfratellanzadelleombre/immagini/shay.png");
-    }
-
-    if (nomePlayer.contains("KASSANDRA")){
-        setImmagine(immaginePlayer, "/assassinscreedfratellanzadelleombre/immagini/kassandra.png");
-    }
-
-    String nomeNemico = gameManager.getNemico().getNome();
-
-    if (nomeNemico.contains("Spia")){
-        setImmagine(immagineNemico, "/assassinscreedfratellanzadelleombre/immagini/spia.png");
-    }
-
-    if (nomeNemico.contains("Guerriero")){
-        setImmagine(immagineNemico, "/assassinscreedfratellanzadelleombre/immagini/guerriero.png");
-    }
-
-    if (nomeNemico.contains("Assassino")){
-        setImmagine(immagineNemico, "/assassinscreedfratellanzadelleombre/immagini/assassino.png");
-    }
-}
+    
 
     
     private void setImmagine(JLabel label, String path){
@@ -171,6 +172,7 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         immagineNemico = new javax.swing.JLabel();
         immaginePlayer = new javax.swing.JLabel();
         labelEsperienza = new javax.swing.JLabel();
+        bottoneSalva = new javax.swing.JButton();
         SfondoCombattimento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -260,6 +262,16 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         getContentPane().add(labelEsperienza);
         labelEsperienza.setBounds(310, 80, 170, 40);
 
+        bottoneSalva.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bottoneSalva.setText("SALVA");
+        bottoneSalva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneSalvaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bottoneSalva);
+        bottoneSalva.setBounds(340, 280, 110, 50);
+
         SfondoCombattimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/SfondoCombattimento.png"))); // NOI18N
         getContentPane().add(SfondoCombattimento);
         SfondoCombattimento.setBounds(0, 0, 800, 500);
@@ -276,9 +288,13 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     }//GEN-LAST:event_bottoneAttaccaActionPerformed
 
     private void bottoneSpecialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSpecialeActionPerformed
-        gameManager.usaAbilita();
-        areaTestoCombattimento.setText("Hai usato la tua abilita speciale!");
-                labelEsperienza.setText("XP: " + gameManager.getGiocatore().getPunteggio());
+        if (gameManager.usaAbilita()){
+            areaTestoCombattimento.setText("Hai usato la tua abilita speciale");
+        }
+        else {
+            areaTestoCombattimento.setText("L'energia e insufficente...");    
+        }
+        labelEsperienza.setText("XP: " + gameManager.getGiocatore().getPunteggio());
         aggiornaSchermata();
         controllaFinePartita();
     }//GEN-LAST:event_bottoneSpecialeActionPerformed
@@ -297,6 +313,12 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     private void bottoneNasconditiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneNasconditiActionPerformed
         areaTestoCombattimento.setText("Ti sei nascosto!");
     }//GEN-LAST:event_bottoneNasconditiActionPerformed
+
+    private void bottoneSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSalvaActionPerformed
+        FileManager.salvaGioco(gameManager.getGiocatore(), gameManager.getNumeroNemiciSconfitti());
+        
+        areaTestoCombattimento.setText("Partita salvata");
+    }//GEN-LAST:event_bottoneSalvaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,6 +352,7 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     private javax.swing.JButton bottoneAttacca;
     private javax.swing.JButton bottoneCurati;
     private javax.swing.JButton bottoneNasconditi;
+    private javax.swing.JButton bottoneSalva;
     private javax.swing.JButton bottoneSpeciale;
     private javax.swing.JLabel immagineNemico;
     private javax.swing.JLabel immaginePlayer;
