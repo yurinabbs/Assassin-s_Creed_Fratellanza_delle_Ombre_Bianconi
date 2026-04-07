@@ -40,10 +40,16 @@ public class GameManager {
         giocatore.attacca(nemico);
 
         if(nemico.isMorto()) {
+            
+            if (nemico.getNome().equals("L'Intendente")){
+            partitaFinita = true;
+            return;
+            }
+            
             numeroNemiciSconfitti++;
+            giocatore.aggiungiPunteggio(100);
             generaDrop();
             generaNemico();
-            giocatore.guadagnaEsperienza(50);
             return;
         }
 
@@ -121,12 +127,13 @@ public class GameManager {
             nemico = new Nemico ("Assassino",vitaBase + 20,forzaBase + 5);
         }
         
-        if (nemico.isMorto() && nemico.getNome().equals("L'Intendente")){
-            partitaFinita = true;
-        }
     }
     
     public boolean isPartitaFinita() {
         return partitaFinita || giocatore.isMorto();
+    }
+    
+    public boolean isVittoria() {
+       return partitaFinita || giocatore.isMorto();
     }
 }

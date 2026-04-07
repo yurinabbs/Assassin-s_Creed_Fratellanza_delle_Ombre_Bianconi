@@ -24,11 +24,8 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         this.gameManager = gm1;
         initComponents();
         aggiornaSchermata();
-        aggiornaImmagini();   
-        java.net.URL test = getClass().getResource("/assassinscreedfratellanzadelleombre/immagini/ezio.png");
-
-System.out.println(test);
-
+        aggiornaImmagini();
+        
     }
     
     private void aggiornaSchermata() {
@@ -77,27 +74,77 @@ System.out.println(test);
 }
 
     
-private void setImmagine(JLabel label, String path){
+    private void setImmagine(JLabel label, String path){
 
-    java.net.URL url = getClass().getResource(path);
+        java.net.URL url = getClass().getResource(path);
 
-    if(url == null){
-        System.out.println("ERRORE: immagine non trovata -> " + path);
-        return;
+        if(url == null){
+            System.out.println("ERRORE: immagine non trovata -> " + path);
+            return;
+        }
+
+        ImageIcon icon = new ImageIcon(url);
+        Image img = icon.getImage();
+
+        Image imgScaled = img.getScaledInstance(
+            label.getWidth(),
+            label.getHeight(),
+            Image.SCALE_SMOOTH
+        );
+
+        label.setIcon(new ImageIcon(imgScaled));
     }
 
-    ImageIcon icon = new ImageIcon(url);
-    Image img = icon.getImage();
+    private void mostraSchermataSconfitta(){
 
-    Image imgScaled = img.getScaledInstance(
-        label.getWidth(),
-        label.getHeight(),
-        Image.SCALE_SMOOTH
-    );
+        Personaggio p = gameManager.getGiocatore();
 
-    label.setIcon(new ImageIcon(imgScaled));
-}
+        FileManager.salvaPunteggio(p.getNome(), p.getPunteggio());
 
+        javax.swing.JFrame sconfitta = new javax.swing.JFrame("Hai perso"); //Metodo non implementato da me per mostrare una schermata alla morte del player
+        sconfitta.setSize(300, 200);
+
+        javax.swing.JLabel label = new javax.swing.JLabel("HAI PERSO!", javax.swing.SwingConstants.CENTER);
+        sconfitta.add(label);
+
+        sconfitta.setLocationRelativeTo(null);
+        sconfitta.setVisible(true);
+
+        this.dispose();
+    }
+
+    
+    private void controllaFinePartita() {
+        
+        if (gameManager.isPartitaFinita()) {
+            if (gameManager.getGiocatore().isMorto()) {
+                mostraSchermataSconfitta();
+            }
+            else if (gameManager.isVittoria()) {
+                mostraSchermataVittoria();
+            }
+        }
+    }
+    
+    private void mostraSchermataVittoria() {
+        Personaggio p = gameManager.getGiocatore();
+        
+        FileManager.salvaPunteggio(p.getNome(), p.getPunteggio());
+
+        javax.swing.JFrame vittoria = new javax.swing.JFrame("Vittoria!");
+        vittoria.setSize(400, 250);
+
+        javax.swing.JLabel label = new javax.swing.JLabel(
+            "HAI VINTO! Punteggio: " + p.getPunteggio(),
+            javax.swing.SwingConstants.CENTER
+        );
+
+        vittoria.add(label);
+
+        vittoria.setLocationRelativeTo(null);
+        vittoria.setVisible(true);
+        this.dispose();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -123,6 +170,7 @@ private void setImmagine(JLabel label, String path){
         barraVitaPlayer = new javax.swing.JProgressBar();
         immagineNemico = new javax.swing.JLabel();
         immaginePlayer = new javax.swing.JLabel();
+        labelEsperienza = new javax.swing.JLabel();
         SfondoCombattimento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -207,6 +255,11 @@ private void setImmagine(JLabel label, String path){
         getContentPane().add(immaginePlayer);
         immaginePlayer.setBounds(40, 110, 160, 270);
 
+        labelEsperienza.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelEsperienza.setText("XP:");
+        getContentPane().add(labelEsperienza);
+        labelEsperienza.setBounds(310, 80, 170, 40);
+
         SfondoCombattimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/SfondoCombattimento.png"))); // NOI18N
         getContentPane().add(SfondoCombattimento);
         SfondoCombattimento.setBounds(0, 0, 800, 500);
@@ -217,13 +270,17 @@ private void setImmagine(JLabel label, String path){
     private void bottoneAttaccaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneAttaccaActionPerformed
         gameManager.attaccoGiocatore();
         areaTestoCombattimento.setText("Hai attaccato il nemico!");
+        labelEsperienza.setText("XP: " + gameManager.getGiocatore().getPunteggio());
         aggiornaSchermata();
+        controllaFinePartita();
     }//GEN-LAST:event_bottoneAttaccaActionPerformed
 
     private void bottoneSpecialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSpecialeActionPerformed
         gameManager.usaAbilita();
         areaTestoCombattimento.setText("Hai usato la tua abilita speciale!");
+                labelEsperienza.setText("XP: " + gameManager.getGiocatore().getPunteggio());
         aggiornaSchermata();
+        controllaFinePartita();
     }//GEN-LAST:event_bottoneSpecialeActionPerformed
 
     private void bottoneCuratiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneCuratiActionPerformed
@@ -234,6 +291,7 @@ private void setImmagine(JLabel label, String path){
             areaTestoCombattimento.setText("Nessuna cura disponibile!");
         }
         aggiornaSchermata();
+        controllaFinePartita();
     }//GEN-LAST:event_bottoneCuratiActionPerformed
 
     private void bottoneNasconditiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneNasconditiActionPerformed
@@ -277,6 +335,7 @@ private void setImmagine(JLabel label, String path){
     private javax.swing.JLabel immaginePlayer;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelEnergia;
+    private javax.swing.JLabel labelEsperienza;
     private javax.swing.JLabel labelNomeNemico;
     private javax.swing.JLabel labelNomePlayer;
     private javax.swing.JLabel labelVitaNemico;

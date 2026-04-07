@@ -18,7 +18,7 @@ public class Personaggio {
     private int dannoSpeciale;
     private int energiaRichiesta;
     private int livello;
-    private int esperienza;
+    private int punteggio;
 
     public Personaggio(String nome, int vita, int attacco, int furtivita, int dannoSpeciale, int energiaRichiesta) {
         this.nome = nome;
@@ -30,7 +30,7 @@ public class Personaggio {
         this.energia = 0;
         this.cureDisponibili = 2;
         this.livello = 1;
-        this.esperienza = 0;
+        this.punteggio = 0;
     }
     
     public boolean usaSpeciale (Nemico n){
@@ -63,14 +63,17 @@ public class Personaggio {
         return false;
     }
     
-    public void guadagnaEsperienza(int xp){
-        esperienza = esperienza + xp;
-        
-        if(esperienza >= livello * 100){
-            saliDiLivello();
-        }
+    public int getPunteggio(){
+        return punteggio;
     }
     
+    public void setPunteggio(int punteggio) {
+        this.punteggio = punteggio;
+    }
+    
+    public void aggiungiPunteggio(int punti) {
+        this.punteggio += punti;
+    }
     public void saliDiLivello(){
         livello++;
         
@@ -134,10 +137,6 @@ public class Personaggio {
 
     public int getLivello() {
         return livello;
-    }
-
-    public int getEsperienza() {
-        return esperienza;
     }
 
 }
