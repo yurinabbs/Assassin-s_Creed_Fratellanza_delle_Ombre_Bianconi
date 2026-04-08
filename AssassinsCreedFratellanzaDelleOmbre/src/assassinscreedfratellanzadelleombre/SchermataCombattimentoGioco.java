@@ -297,6 +297,7 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         areaTestoCombattimento.setText("Hai attaccato il nemico!");
         labelEsperienza.setText("XP: " + gameManager.getGiocatore().getPunteggio());
         aggiornaSchermata();
+        aggiornaImmagini();
         controllaFinePartita();
     }//GEN-LAST:event_bottoneAttaccaActionPerformed
 
@@ -309,6 +310,7 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         }
         labelEsperienza.setText("XP: " + gameManager.getGiocatore().getPunteggio());
         aggiornaSchermata();
+        aggiornaImmagini();
         controllaFinePartita();
     }//GEN-LAST:event_bottoneSpecialeActionPerformed
 
@@ -320,6 +322,7 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
             areaTestoCombattimento.setText("Nessuna cura disponibile!");
         }
         aggiornaSchermata();
+        aggiornaImmagini();
         controllaFinePartita();
     }//GEN-LAST:event_bottoneCuratiActionPerformed
 

@@ -49,7 +49,7 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bottoneContinuaGiocoSrz);
-        bottoneContinuaGiocoSrz.setBounds(330, 450, 170, 30);
+        bottoneContinuaGiocoSrz.setBounds(320, 450, 200, 30);
 
         bottoneIniziaGioco.setBackground(new java.awt.Color(102, 0, 0));
         bottoneIniziaGioco.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
@@ -75,7 +75,7 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bottoneLeggiStoria1);
-        bottoneLeggiStoria1.setBounds(330, 410, 170, 30);
+        bottoneLeggiStoria1.setBounds(330, 370, 170, 30);
 
         bottoneContinuaGiocoTxt.setBackground(new java.awt.Color(102, 0, 0));
         bottoneContinuaGiocoTxt.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
@@ -88,7 +88,7 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bottoneContinuaGiocoTxt);
-        bottoneContinuaGiocoTxt.setBounds(330, 370, 170, 30);
+        bottoneContinuaGiocoTxt.setBounds(320, 410, 200, 30);
 
         labelSfondoSchermataIniziale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/sfondoInizioGioco.png"))); // NOI18N
         getContentPane().add(labelSfondoSchermataIniziale);
