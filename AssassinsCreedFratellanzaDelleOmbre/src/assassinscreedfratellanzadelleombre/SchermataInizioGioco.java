@@ -30,48 +30,65 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bottoneLeggiStoria = new javax.swing.JButton();
+        bottoneContinuaGiocoSrz = new javax.swing.JButton();
         bottoneIniziaGioco = new javax.swing.JButton();
-        bottoneContinuaGioco = new javax.swing.JButton();
+        bottoneLeggiStoria1 = new javax.swing.JButton();
+        bottoneContinuaGiocoTxt = new javax.swing.JButton();
         labelSfondoSchermataIniziale = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
-        bottoneLeggiStoria.setBackground(new java.awt.Color(102, 0, 0));
-        bottoneLeggiStoria.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
-        bottoneLeggiStoria.setForeground(new java.awt.Color(242, 242, 242));
-        bottoneLeggiStoria.setText("LEGGI STORIA");
-        bottoneLeggiStoria.addActionListener(new java.awt.event.ActionListener() {
+        bottoneContinuaGiocoSrz.setBackground(new java.awt.Color(102, 0, 0));
+        bottoneContinuaGiocoSrz.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
+        bottoneContinuaGiocoSrz.setForeground(new java.awt.Color(242, 242, 242));
+        bottoneContinuaGiocoSrz.setText("CONTINUA SRZ");
+        bottoneContinuaGiocoSrz.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bottoneContinuaGiocoSrz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottoneLeggiStoriaActionPerformed(evt);
+                bottoneContinuaGiocoSrzActionPerformed(evt);
             }
         });
-        getContentPane().add(bottoneLeggiStoria);
-        bottoneLeggiStoria.setBounds(330, 430, 170, 40);
+        getContentPane().add(bottoneContinuaGiocoSrz);
+        bottoneContinuaGiocoSrz.setBounds(330, 450, 170, 30);
 
         bottoneIniziaGioco.setBackground(new java.awt.Color(102, 0, 0));
         bottoneIniziaGioco.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
         bottoneIniziaGioco.setForeground(new java.awt.Color(242, 242, 242));
         bottoneIniziaGioco.setText("INIZIA GIOCO");
+        bottoneIniziaGioco.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bottoneIniziaGioco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bottoneIniziaGiocoActionPerformed(evt);
             }
         });
         getContentPane().add(bottoneIniziaGioco);
-        bottoneIniziaGioco.setBounds(330, 330, 170, 40);
+        bottoneIniziaGioco.setBounds(330, 330, 170, 30);
 
-        bottoneContinuaGioco.setBackground(new java.awt.Color(102, 0, 0));
-        bottoneContinuaGioco.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
-        bottoneContinuaGioco.setForeground(new java.awt.Color(242, 242, 242));
-        bottoneContinuaGioco.setText("CONTINUA ");
-        bottoneContinuaGioco.addActionListener(new java.awt.event.ActionListener() {
+        bottoneLeggiStoria1.setBackground(new java.awt.Color(102, 0, 0));
+        bottoneLeggiStoria1.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
+        bottoneLeggiStoria1.setForeground(new java.awt.Color(242, 242, 242));
+        bottoneLeggiStoria1.setText("LEGGI STORIA");
+        bottoneLeggiStoria1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bottoneLeggiStoria1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottoneContinuaGiocoActionPerformed(evt);
+                bottoneLeggiStoria1ActionPerformed(evt);
             }
         });
-        getContentPane().add(bottoneContinuaGioco);
-        bottoneContinuaGioco.setBounds(330, 380, 170, 40);
+        getContentPane().add(bottoneLeggiStoria1);
+        bottoneLeggiStoria1.setBounds(330, 410, 170, 30);
+
+        bottoneContinuaGiocoTxt.setBackground(new java.awt.Color(102, 0, 0));
+        bottoneContinuaGiocoTxt.setFont(new java.awt.Font("Cinzel", 1, 18)); // NOI18N
+        bottoneContinuaGiocoTxt.setForeground(new java.awt.Color(242, 242, 242));
+        bottoneContinuaGiocoTxt.setText("CONTINUA TXT");
+        bottoneContinuaGiocoTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bottoneContinuaGiocoTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneContinuaGiocoTxtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bottoneContinuaGiocoTxt);
+        bottoneContinuaGiocoTxt.setBounds(330, 370, 170, 30);
 
         labelSfondoSchermataIniziale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/sfondoInizioGioco.png"))); // NOI18N
         getContentPane().add(labelSfondoSchermataIniziale);
@@ -87,15 +104,24 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bottoneIniziaGiocoActionPerformed
 
-    private void bottoneLeggiStoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneLeggiStoriaActionPerformed
-
-        sc1.setVisible(true);
-        sc1.setSize(837,540);
-        this.dispose();
+    private void bottoneContinuaGiocoSrzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneContinuaGiocoSrzActionPerformed
+                
+        GameManager gm = FileManager.caricaGiocoSerializzato();
         
-    }//GEN-LAST:event_bottoneLeggiStoriaActionPerformed
+        if (gm != null) {
+            SchermataCombattimentoGioco scm1 = new SchermataCombattimentoGioco(gm);
+            scm1.setVisible(true);
+            scm1.setSize(837,540);
+            this.dispose();
+        }
+        else {
+            javax.swing.JOptionPane.showMessageDialog(null,"Nessun salvataggio trovato");
+        }
+        
+        
+    }//GEN-LAST:event_bottoneContinuaGiocoSrzActionPerformed
 
-    private void bottoneContinuaGiocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneContinuaGiocoActionPerformed
+    private void bottoneContinuaGiocoTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneContinuaGiocoTxtActionPerformed
         Object[] dati = FileManager.caricaGioco();
         
         if (dati != null) {
@@ -110,13 +136,19 @@ public class SchermataInizioGioco extends javax.swing.JFrame {
         else {
             javax.swing.JOptionPane.showMessageDialog(null, "nessun salvataggio trovato"); //idea presa da game over e vittoria
         }
-    }//GEN-LAST:event_bottoneContinuaGiocoActionPerformed
+
+    }//GEN-LAST:event_bottoneContinuaGiocoTxtActionPerformed
+
+    private void bottoneLeggiStoria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneLeggiStoria1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bottoneLeggiStoria1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bottoneContinuaGioco;
+    private javax.swing.JButton bottoneContinuaGiocoSrz;
+    private javax.swing.JButton bottoneContinuaGiocoTxt;
     private javax.swing.JButton bottoneIniziaGioco;
-    private javax.swing.JButton bottoneLeggiStoria;
+    private javax.swing.JButton bottoneLeggiStoria1;
     private javax.swing.JLabel labelSfondoSchermataIniziale;
     // End of variables declaration//GEN-END:variables
 }

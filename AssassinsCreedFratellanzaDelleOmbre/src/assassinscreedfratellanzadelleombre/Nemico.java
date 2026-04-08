@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package assassinscreedfratellanzadelleombre;
+import java.io.Serializable;
 
 /**
  *
  * @author bianconi.yurinabil
  */
-public class Nemico {
+public class Nemico implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String nome;
     private int vita;
     private int attacco;

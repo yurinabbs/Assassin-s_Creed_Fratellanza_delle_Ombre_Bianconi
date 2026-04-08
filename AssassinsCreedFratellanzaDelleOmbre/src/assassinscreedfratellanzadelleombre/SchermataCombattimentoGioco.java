@@ -146,6 +146,8 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         vittoria.setVisible(true);
         this.dispose();
     }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -172,7 +174,8 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         immagineNemico = new javax.swing.JLabel();
         immaginePlayer = new javax.swing.JLabel();
         labelEsperienza = new javax.swing.JLabel();
-        bottoneSalva = new javax.swing.JButton();
+        bottoneSalvaSrz = new javax.swing.JButton();
+        bottoneSalvaTxt = new javax.swing.JButton();
         SfondoCombattimento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -262,15 +265,25 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         getContentPane().add(labelEsperienza);
         labelEsperienza.setBounds(310, 80, 170, 40);
 
-        bottoneSalva.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        bottoneSalva.setText("SALVA");
-        bottoneSalva.addActionListener(new java.awt.event.ActionListener() {
+        bottoneSalvaSrz.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bottoneSalvaSrz.setText("SALVA SRZ");
+        bottoneSalvaSrz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottoneSalvaActionPerformed(evt);
+                bottoneSalvaSrzActionPerformed(evt);
             }
         });
-        getContentPane().add(bottoneSalva);
-        bottoneSalva.setBounds(340, 280, 110, 50);
+        getContentPane().add(bottoneSalvaSrz);
+        bottoneSalvaSrz.setBounds(320, 300, 150, 40);
+
+        bottoneSalvaTxt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bottoneSalvaTxt.setText("SALVA TXT");
+        bottoneSalvaTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottoneSalvaTxtActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bottoneSalvaTxt);
+        bottoneSalvaTxt.setBounds(320, 250, 150, 40);
 
         SfondoCombattimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assassinscreedfratellanzadelleombre/SfondoCombattimento.png"))); // NOI18N
         getContentPane().add(SfondoCombattimento);
@@ -314,11 +327,17 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
         areaTestoCombattimento.setText("Ti sei nascosto!");
     }//GEN-LAST:event_bottoneNasconditiActionPerformed
 
-    private void bottoneSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSalvaActionPerformed
-        FileManager.salvaGioco(gameManager.getGiocatore(), gameManager.getNumeroNemiciSconfitti());
+    private void bottoneSalvaSrzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSalvaSrzActionPerformed
+        FileManager.salvaGiocoSerializzato(gameManager);
+        areaTestoCombattimento.setText("Partita salvata (serializzazione)");
         
+    }//GEN-LAST:event_bottoneSalvaSrzActionPerformed
+
+    private void bottoneSalvaTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottoneSalvaTxtActionPerformed
+        FileManager.salvaGioco(gameManager.getGiocatore(), gameManager.getNumeroNemiciSconfitti());
         areaTestoCombattimento.setText("Partita salvata");
-    }//GEN-LAST:event_bottoneSalvaActionPerformed
+        
+    }//GEN-LAST:event_bottoneSalvaTxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,7 +371,8 @@ public class SchermataCombattimentoGioco extends javax.swing.JFrame {
     private javax.swing.JButton bottoneAttacca;
     private javax.swing.JButton bottoneCurati;
     private javax.swing.JButton bottoneNasconditi;
-    private javax.swing.JButton bottoneSalva;
+    private javax.swing.JButton bottoneSalvaSrz;
+    private javax.swing.JButton bottoneSalvaTxt;
     private javax.swing.JButton bottoneSpeciale;
     private javax.swing.JLabel immagineNemico;
     private javax.swing.JLabel immaginePlayer;

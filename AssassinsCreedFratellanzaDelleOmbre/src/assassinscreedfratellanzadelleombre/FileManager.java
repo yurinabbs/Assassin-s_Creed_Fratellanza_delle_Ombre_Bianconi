@@ -61,11 +61,44 @@ public class FileManager {
     }
     
     public static String[] leggiClassifica() {
-    try {
-        return Files.readAllLines(Paths.get("classifica.txt")).toArray(new String[0]);
-    } catch (IOException e) {
-        return new String[0]; 
+        try {
+            return Files.readAllLines(Paths.get("classifica.txt")).toArray(new String[0]);
+        } 
+        catch (IOException e) {
+            return new String[0]; 
+        }
     }
-}
     
+    public static void salvaGiocoSerializzato (GameManager gm) {
+        try {
+            java.io.FileOutputStream file = new java.io.FileOutputStream("salvataggio.dat"); //creo il file per salvare
+            java.io.ObjectOutputStream output = new java.io.ObjectOutputStream(file); //creo una sorta di canale per salvare gli oggetti
+            output.writeObject(gm); //scrivo dentro il gamemanager tutto l gioco
+            output.close();
+            file.close();
+            
+            System.out.println("Gioco salvato correttamente");
+        }
+        catch (Exception e){
+            System.out.println("Errore durante il salvataggio del gioco");
+        }
+    }
+    
+    public static GameManager caricaGiocoSerializzato() {
+        try {
+            java.io.FileInputStream file = new java.io.FileInputStream("salvataggio.dat"); //apro il file da cui leggere 
+            java.io.ObjectInputStream input = new java.io.ObjectInputStream(file); //creo il canale per leggere oggetti
+            GameManager gm = (GameManager) input.readObject();
+            
+            input.close();
+            file.close();
+            
+            System.out.println("gioco caricato correttamente");
+             return gm;
+        }
+        catch (Exception e) {
+            System.out.println("errore durante il caricamento");
+            return null;
+        }
+    }
 }

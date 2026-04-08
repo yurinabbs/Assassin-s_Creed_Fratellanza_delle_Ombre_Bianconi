@@ -4,12 +4,14 @@
  */
 package assassinscreedfratellanzadelleombre;
 import java.util.Random;
+import java.io.Serializable;
 
 /**
  *
  * @author bianconi.yurinabil
  */
-public class GameManager {
+public class GameManager implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Personaggio giocatore;
     private Nemico nemico;
     private int numeroNemiciSconfitti = 0;
